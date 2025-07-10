@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Property</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Booking: {{ property.title }}</h1>
+    <form method="POST">
+        <label>Your Name:</label><br>
+        <input type="text" name="name" required><br><br>
+        <button type="submit">Confirm Booking</button>
+    </form>
+</body>
+</html>

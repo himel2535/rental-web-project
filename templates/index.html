@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rental Properties</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🏠 Available Properties</h1>
+    {% for prop in properties %}
+        <div class="card">
+            <h3>{{ prop.title }}</h3>
+            <p>Rent: ৳{{ prop.rent }}</p>
+            <p>Status: {{ 'Available' if prop.available else 'Booked' }}</p>
+            {% if prop.available %}
+                <a href="{{ url_for('book', prop_id=prop.id) }}">Book Now</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <br><a href="{{ url_for('bookings_view') }}">View All Bookings</a>
+</body>
+</html>
